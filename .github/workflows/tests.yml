@@ -1,0 +1,45 @@
+name: Tests
+
+on:
+  push:
+  pull_request:
+  schedule:
+    # Weekly: the integration relies on frontend internals (per-user sidebar
+    # data, native kiosk mode), so catch a Home Assistant release changing them.
+    - cron: "0 4 * * 1"
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  pytest:
+    name: pytest (${{ matrix.name }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          # Lower bound: the hacs.json minimum (HA 2026.2), pinned in requirements_test.txt.
+          - name: HA 2026.2
+            python: "3.13"
+            install: pip install -r requirements_test.txt
+          # Latest Home Assistant release.
+          - name: HA latest
+            python: "3.14"
+            install: pip install pytest-homeassistant-custom-component home-assistant-frontend
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: ${{ matrix.python }}
+      - run: ${{ matrix.install }}
+      - run: python -m pytest -q
+
+  javascript:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Syntax
+        run: |
+          node --check custom_components/user_dashboard_admin/www/panel.js
+          node --check custom_components/user_dashboard_admin/www/kiosk.js

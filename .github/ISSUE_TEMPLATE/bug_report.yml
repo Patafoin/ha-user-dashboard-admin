@@ -1,0 +1,39 @@
+name: Bug report
+description: Something does not work as expected
+labels: [bug]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: What you did, what you expected, what you got.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: User Dashboard Admin version
+      placeholder: 1.0.0
+    validations:
+      required: true
+  - type: input
+    id: ha_version
+    attributes:
+      label: Home Assistant version
+      placeholder: 2026.10.4
+    validations:
+      required: true
+  - type: input
+    id: client
+    attributes:
+      label: Where does it happen?
+      description: Browser (which one), Android or iOS Companion app.
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Diagnostics and logs
+      description: >-
+        Diagnostics of the integration (integration page → ⋮ → Download diagnostics),
+        Home Assistant logs mentioning user_dashboard_admin (Settings → System → Logs),
+        and the browser console if the console or kiosk mode is involved.
+      render: text

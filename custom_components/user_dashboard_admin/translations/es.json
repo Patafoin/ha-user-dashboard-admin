@@ -1,0 +1,31 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "User Dashboard Admin",
+        "description": "Gestiona, para cada usuario, la barra lateral, el panel predeterminado y el modo quiosco. Ocultar no es restringir el acceso: una página oculta sigue siendo accesible por su URL."
+      }
+    },
+    "abort": {
+      "single_instance_allowed": "User Dashboard Admin ya está configurado."
+    }
+  },
+  "entity": {
+    "switch": {
+      "kiosk": {
+        "name": "Quiosco {user}"
+      }
+    }
+  },
+  "exceptions": {
+    "admin_kiosk": {
+      "message": "{user} es administrador: el modo quiosco le bloquearía el acceso a los ajustes."
+    },
+    "admin_protected_panel": {
+      "message": "{user} es administrador: Ajustes y User Dashboard Admin no se pueden ocultar."
+    },
+    "unknown_user": {
+      "message": "Usuario desconocido."
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "User Dashboard Admin",
+        "description": "Für jede Benutzerin und jeden Benutzer die Seitenleiste, das Standard-Dashboard und den Kioskmodus verwalten. Ausblenden ist kein Zugriffsschutz: Eine ausgeblendete Seite bleibt über ihre URL erreichbar."
+      }
+    },
+    "abort": {
+      "single_instance_allowed": "User Dashboard Admin ist bereits eingerichtet."
+    }
+  },
+  "entity": {
+    "switch": {
+      "kiosk": {
+        "name": "Kiosk {user}"
+      }
+    }
+  },
+  "exceptions": {
+    "admin_kiosk": {
+      "message": "{user} ist Administrator: Der Kioskmodus würde den Zugang zu den Einstellungen sperren."
+    },
+    "admin_protected_panel": {
+      "message": "{user} ist Administrator: Einstellungen und User Dashboard Admin können nicht ausgeblendet werden."
+    },
+    "unknown_user": {
+      "message": "Unbekannter Benutzer."
+    }
+  }
+}

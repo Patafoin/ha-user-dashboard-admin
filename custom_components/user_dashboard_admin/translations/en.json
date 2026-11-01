@@ -1,0 +1,31 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "User Dashboard Admin",
+        "description": "Manage each user's sidebar, default dashboard and kiosk mode. Hiding something is not access control: a hidden page stays reachable by its URL."
+      }
+    },
+    "abort": {
+      "single_instance_allowed": "User Dashboard Admin is already set up."
+    }
+  },
+  "entity": {
+    "switch": {
+      "kiosk": {
+        "name": "Kiosk {user}"
+      }
+    }
+  },
+  "exceptions": {
+    "admin_kiosk": {
+      "message": "{user} is an administrator: kiosk mode would lock them out of the settings."
+    },
+    "admin_protected_panel": {
+      "message": "{user} is an administrator: Settings and User Dashboard Admin cannot be hidden."
+    },
+    "unknown_user": {
+      "message": "Unknown user."
+    }
+  }
+}

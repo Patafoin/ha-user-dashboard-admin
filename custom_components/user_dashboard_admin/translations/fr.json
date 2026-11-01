@@ -1,0 +1,31 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "User Dashboard Admin",
+        "description": "Gérer, pour chaque utilisateur, la barre latérale, le dashboard par défaut et le mode kiosque. Masquer n'est pas interdire : une page masquée reste accessible par son URL."
+      }
+    },
+    "abort": {
+      "single_instance_allowed": "User Dashboard Admin est déjà configuré."
+    }
+  },
+  "entity": {
+    "switch": {
+      "kiosk": {
+        "name": "Kiosque {user}"
+      }
+    }
+  },
+  "exceptions": {
+    "admin_kiosk": {
+      "message": "{user} est administrateur : le mode kiosque lui couperait l'accès aux paramètres."
+    },
+    "admin_protected_panel": {
+      "message": "{user} est administrateur : Paramètres et User Dashboard Admin ne peuvent pas être masqués."
+    },
+    "unknown_user": {
+      "message": "Utilisateur inconnu."
+    }
+  }
+}
