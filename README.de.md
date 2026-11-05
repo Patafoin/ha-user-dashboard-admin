@@ -2,7 +2,7 @@
 
 🇬🇧 [Read in English](https://github.com/Patafoin/ha-user-dashboard-admin/blob/main/README.md) · 🇫🇷 [Lire en français](https://github.com/Patafoin/ha-user-dashboard-admin/blob/main/README.fr.md) · 🇪🇸 [Leer en español](https://github.com/Patafoin/ha-user-dashboard-admin/blob/main/README.es.md)
 
-[![hacs_badge](https://img.shields.io/badge/HACS-Custom-41BDF5.svg)](https://hacs.xyz/)
+[![Marketplace (HACS)](https://img.shields.io/badge/Marketplace%20%28HACS%29-default-41BDF5.svg)](https://hacs.xyz/)
 [![GitHub release](https://img.shields.io/github/v/release/Patafoin/ha-user-dashboard-admin)](https://github.com/Patafoin/ha-user-dashboard-admin/releases)
 [![Validate](https://github.com/Patafoin/ha-user-dashboard-admin/actions/workflows/validate.yml/badge.svg)](https://github.com/Patafoin/ha-user-dashboard-admin/actions/workflows/validate.yml)
 [![Tests](https://github.com/Patafoin/ha-user-dashboard-admin/actions/workflows/tests.yml/badge.svg)](https://github.com/Patafoin/ha-user-dashboard-admin/actions/workflows/tests.yml)
@@ -49,20 +49,21 @@ Home Assistant hat nur zwei echte Sperren: den **Administrator**-Status eines Ko
 
 ## Voraussetzungen
 
-- Home Assistant **2026.2 oder neuer** und [HACS](https://hacs.xyz/).
+- Home Assistant **2026.2 oder neuer** und [Marketplace (HACS)](https://hacs.xyz/).
 - Getestet mit 2026.2.3 (automatische Tests), 2026.9.2 (Browsertest auf einer frischen Instanz) und 2026.10.4 (täglicher Einsatz, einschließlich der Android-Companion-App).
 
 ## Installation
 
-[![Dieses Repository in HACS öffnen.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=Patafoin&repository=ha-user-dashboard-admin&category=integration)
+[![Dieses Repository im Marketplace (HACS) öffnen.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=Patafoin&repository=ha-user-dashboard-admin&category=integration)
 
-1. In HACS: ⋮ → **Benutzerdefinierte Repositories** → `https://github.com/Patafoin/ha-user-dashboard-admin`, Typ **Integration**.
-2. **User Dashboard Admin** herunterladen, dann Home Assistant neu starten.
-3. **Einstellungen → Geräte & Dienste → Integration hinzufügen → User Dashboard Admin** (keine Einstellungen nötig).
+1. Einstellungen → **Marketplace**, nach **User Dashboard Admin** suchen und **Installieren** wählen. Vor Home Assistant 2026.11 dieselbe Suche in **HACS** ausführen, herunterladen und Home Assistant neu starten.
+2. **Einstellungen → Geräte & Dienste → Integration hinzufügen → User Dashboard Admin** (keine Einstellungen nötig).
 
 [![Die Integration zu Home Assistant hinzufügen.](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start/?domain=user_dashboard_admin)
 
 **User Dashboard Admin** erscheint dann in der Seitenleiste der Administratoren.
+
+Findet die Suche sie nicht, das Repository über seinen Link hinzufügen: im Marketplace per Link hinzufügen → `https://github.com/Patafoin/ha-user-dashboard-admin`; in HACS ⋮ → **Benutzerdefinierte Repositories** → dieselbe URL, Typ **Integration**.
 
 ## Die Konsole verwenden
 
