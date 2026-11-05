@@ -4,11 +4,15 @@ from __future__ import annotations
 
 from typing import Any
 
+from homeassistant.components.diagnostics import async_redact_data
 from homeassistant.components.frontend.storage import async_user_store
 from homeassistant.core import HomeAssistant
 
 from . import UserDashboardAdminConfigEntry
 from .manager import is_managed_user
+
+# Diagnostics end up in public issues: nothing that identifies an account.
+TO_REDACT = {"id"}
 
 
 async def async_get_config_entry_diagnostics(
@@ -22,7 +26,6 @@ async def async_get_config_entry_diagnostics(
         store = await async_user_store(hass, user.id)
         users.append(
             {
-                # No names: user ids are enough to read a report.
                 "id": user.id,
                 "is_admin": user.is_admin,
                 "is_active": user.is_active,
@@ -32,4 +35,4 @@ async def async_get_config_entry_diagnostics(
                 "current_default_panel": (store.data.get("core") or {}).get("default_panel"),
             }
         )
-    return {"users": users}
+    return async_redact_data({"users": users}, TO_REDACT)

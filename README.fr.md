@@ -108,7 +108,7 @@ Les interrupteurs sont rattachés à un unique appareil de service *User Dashboa
 - **Appli Companion Android** : après l'installation ou une mise à jour de l'intégration, si le kiosque ne réagit pas sur un appareil, videz le cache de l'appli (Paramètres Android → Applications → Home Assistant → Stockage → Vider le cache) et rouvrez-la.
 - **browser_mod / kiosk-mode** : retirez leurs réglages de barre latérale et de kiosque pour les utilisateurs gérés ici, sinon les deux agissent en même temps.
 - **Supprimer l'intégration** arrête les règles et le kiosque. Ce qui a été écrit reste en place : chaque utilisateur peut réinitialiser sa barre avec *Modifier la barre latérale*, ou vous pouvez le faire depuis la console avant la suppression (**Ne plus gérer** conserve les réglages actuels).
-- **Diagnostics** (page de l'intégration → ⋮ → Télécharger les diagnostics) : règles et état actuel par utilisateur, sans les noms.
+- **Diagnostics** (page de l'intégration → ⋮ → Télécharger les diagnostics) : règles et état actuel par utilisateur, sans les noms ni les identifiants de compte.
 
 ## Comment ça marche (pour les curieux)
 

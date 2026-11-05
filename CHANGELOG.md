@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses [Semantic Versioning](https://semver.org/).
 
+## [1.0.1] - 2026-11-05
+
+### Fixed
+
+- Diagnostics no longer include Home Assistant user ids: they are redacted, since diagnostics often end up in public issues (HACS review).
+
 ## [1.0.0] - 2026-11-04
 
 First stable release: same code as 1.0.0b1, validated in daily use (two tablets in kiosk mode with the Android Companion app, enforced rules, admin console). See the 1.0.0b1 notes below for the feature list.

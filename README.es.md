@@ -108,7 +108,7 @@ Todos los interruptores pertenecen a un único dispositivo de servicio *User Das
 - **App Companion de Android**: si después de instalar o actualizar la integración el modo quiosco no reacciona en un dispositivo, borra la caché de la app (Ajustes de Android → Aplicaciones → Home Assistant → Almacenamiento → Borrar caché) y vuelve a abrirla.
 - **browser_mod / kiosk-mode**: quita sus ajustes de barra lateral y de quiosco para los usuarios gestionados aquí; si no, ambos actúan a la vez.
 - **Eliminar la integración** detiene las reglas y el modo quiosco. Lo que ya se escribió se mantiene: cada usuario puede restablecer su barra con *Editar barra lateral*, o puedes hacerlo desde la consola antes de eliminarla (**Dejar de gestionar** conserva los ajustes actuales).
-- **Diagnósticos** (página de la integración → ⋮ → Descargar diagnósticos): reglas y estado actual por usuario, sin nombres.
+- **Diagnósticos** (página de la integración → ⋮ → Descargar diagnósticos): reglas y estado actual por usuario, sin nombres ni identificadores de cuenta.
 
 ## Cómo funciona (para curiosos)
 

@@ -208,6 +208,8 @@ async def test_diagnostics(hass: HomeAssistant, emma, entry) -> None:
 
     await hass.data[DOMAIN].async_set_rule(emma.id, EMMA_RULE)
     data = await async_get_config_entry_diagnostics(hass, entry)
-    row = next(u for u in data["users"] if u["id"] == emma.id)
+    assert emma.id not in str(data)
+    assert all(u["id"] == "**REDACTED**" for u in data["users"])
+    row = next(u for u in data["users"] if u["rule"])
     assert row["kiosk_effective"]
     assert "name" not in row

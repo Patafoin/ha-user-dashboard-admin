@@ -108,7 +108,7 @@ Alle Schalter gehören zu einem einzigen Dienstgerät *User Dashboard Admin*. Ei
 - **Android-Companion-App**: Wenn der Kioskmodus nach der Installation oder einem Update der Integration auf einem Gerät nicht reagiert, den App-Cache leeren (Android-Einstellungen → Apps → Home Assistant → Speicher → Cache leeren) und die App neu öffnen.
 - **browser_mod / kiosk-mode**: deren Seitenleisten- und Kiosk-Einstellungen für die hier verwalteten Benutzer entfernen, sonst wirken beide gleichzeitig.
 - **Das Entfernen der Integration** beendet die Regeln und den Kioskmodus. Bereits Geschriebenes bleibt erhalten: Jeder Benutzer kann seine Seitenleiste mit *Seitenleiste bearbeiten* zurücksetzen, oder du erledigst das vorher in der Konsole (**Nicht mehr verwalten** behält die aktuellen Einstellungen).
-- **Diagnosedaten** (Seite der Integration → ⋮ → Diagnosedaten herunterladen): Regeln und aktueller Stand pro Benutzer, ohne Namen.
+- **Diagnosedaten** (Seite der Integration → ⋮ → Diagnosedaten herunterladen): Regeln und aktueller Stand pro Benutzer, ohne Namen und Konto-IDs.
 
 ## So funktioniert es (für Neugierige)
 

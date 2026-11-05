@@ -108,7 +108,7 @@ All switches belong to a single *User Dashboard Admin* service device. A new use
 - **Android Companion app**: after installing or updating the integration, if kiosk mode does not react on a device, clear the app cache (Android settings → Apps → Home Assistant → Storage → Clear cache) and reopen it.
 - **browser_mod / kiosk-mode**: remove their sidebar and kiosk settings for the users you manage here, otherwise both act at the same time.
 - **Removing the integration** stops the rules and kiosk mode. What was written stays in place: each user can reset their sidebar with *Edit sidebar*, or you can do it from the console before removing it (**Stop managing** keeps the current settings).
-- **Diagnostics** (integration page → ⋮ → Download diagnostics) list the rules and the current state per user, without user names.
+- **Diagnostics** (integration page → ⋮ → Download diagnostics) list the rules and the current state per user, without user names or account ids.
 
 ## How it works (for the curious)
 
