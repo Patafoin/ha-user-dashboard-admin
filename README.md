@@ -7,18 +7,19 @@
 [![Validate](https://github.com/Patafoin/ha-user-dashboard-admin/actions/workflows/validate.yml/badge.svg)](https://github.com/Patafoin/ha-user-dashboard-admin/actions/workflows/validate.yml)
 [![Tests](https://github.com/Patafoin/ha-user-dashboard-admin/actions/workflows/tests.yml/badge.svg)](https://github.com/Patafoin/ha-user-dashboard-admin/actions/workflows/tests.yml)
 
-Decide, from **one admin console**, what each Home Assistant user sees: the **sidebar** (which entries, in which order), the **default dashboard**, and **kiosk mode**. No more logging in with every account to set things up, and no browser_mod.
+Decide, from **one admin console**, what each Home Assistant user sees: the **sidebar** (which entries, in which order), the **default dashboard**, and **kiosk mode**. No more logging in with every account to set things up.
 
 ![The console](https://raw.githubusercontent.com/Patafoin/ha-user-dashboard-admin/main/docs/images/en/console.png)
 
 ## Why
 
-Home Assistant lets every user tidy their own sidebar and pick their own default dashboard, but an administrator cannot do it for them. The usual workarounds (browser_mod, custom-sidebar, kiosk-mode) patch the page from the inside, so they tend to break with frontend updates.
+Home Assistant lets every user tidy their own sidebar and pick their own default dashboard, but an administrator cannot do it for them.
 
-User Dashboard Admin works the other way round:
+User Dashboard Admin lets the administrator do it from one console:
 
 - **Sidebar and default dashboard** are written on the server, into the per-user preferences the **official frontend already reads** (the same ones the *Edit sidebar* dialog saves). The frontend applies them itself; open tabs update immediately.
 - **Kiosk mode** is the frontend's **own** kiosk mode. A tiny module asks the server whether the current user should be in kiosk mode and turns it on. It does not touch the page layout.
+- Settings follow the **user account**, so they apply to all of that user's devices. For different settings per **device** of the same user, see [browser_mod](https://github.com/thomasloven/hass-browser_mod).
 
 ## Features
 
@@ -107,7 +108,7 @@ All switches belong to a single *User Dashboard Admin* service device. A new use
 ## Tips
 
 - **Android Companion app**: after installing or updating the integration, if kiosk mode does not react on a device, clear the app cache (Android settings → Apps → Home Assistant → Storage → Clear cache) and reopen it.
-- **browser_mod / kiosk-mode**: remove their sidebar and kiosk settings for the users you manage here, otherwise both act at the same time.
+- **browser_mod / kiosk-mode**: if you also use them, don't manage the same sidebar or kiosk settings for the same user in both places, or they will overlap.
 - **Removing the integration** stops the rules and kiosk mode. What was written stays in place: each user can reset their sidebar with *Edit sidebar*, or you can do it from the console before removing it (**Stop managing** keeps the current settings).
 - **Diagnostics** (integration page → ⋮ → Download diagnostics) list the rules and the current state per user, without user names or account ids.
 

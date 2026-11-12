@@ -7,18 +7,19 @@
 [![Validate](https://github.com/Patafoin/ha-user-dashboard-admin/actions/workflows/validate.yml/badge.svg)](https://github.com/Patafoin/ha-user-dashboard-admin/actions/workflows/validate.yml)
 [![Tests](https://github.com/Patafoin/ha-user-dashboard-admin/actions/workflows/tests.yml/badge.svg)](https://github.com/Patafoin/ha-user-dashboard-admin/actions/workflows/tests.yml)
 
-Decide, desde **una sola consola de administración**, qué ve cada usuario de Home Assistant: la **barra lateral** (qué entradas y en qué orden), el **panel predeterminado** y el **modo quiosco**. Sin tener que iniciar sesión con cada cuenta para configurarlo, y sin browser_mod.
+Decide, desde **una sola consola de administración**, qué ve cada usuario de Home Assistant: la **barra lateral** (qué entradas y en qué orden), el **panel predeterminado** y el **modo quiosco**. Sin tener que iniciar sesión con cada cuenta para configurarlo.
 
 ![La consola](https://raw.githubusercontent.com/Patafoin/ha-user-dashboard-admin/main/docs/images/es/console.png)
 
 ## Por qué
 
-Home Assistant permite que cada usuario ordene su propia barra lateral y elija su panel predeterminado, pero un administrador no puede hacerlo por él. Las soluciones habituales (browser_mod, custom-sidebar, kiosk-mode) modifican la página desde dentro y suelen romperse con las actualizaciones del frontend.
+Home Assistant permite que cada usuario ordene su propia barra lateral y elija su panel predeterminado, pero un administrador no puede hacerlo por él.
 
-User Dashboard Admin lo hace al revés:
+User Dashboard Admin permite al administrador hacerlo desde una sola consola:
 
 - **La barra lateral y el panel predeterminado** se escriben en el servidor, en las preferencias por usuario que **el frontend oficial ya lee** (las mismas que guarda el diálogo *Editar barra lateral*). El propio frontend las aplica; las pestañas abiertas se actualizan al instante.
 - **El modo quiosco** es el modo quiosco **nativo** del frontend. Un pequeño módulo pregunta al servidor si el usuario conectado debe estar en modo quiosco y lo activa. No modifica el diseño de la página.
+- Los ajustes siguen a la **cuenta de usuario**: se aplican en todos los dispositivos de ese usuario. Para ajustes distintos por **dispositivo** de un mismo usuario, consulta [browser_mod](https://github.com/thomasloven/hass-browser_mod).
 
 ## Funciones
 
@@ -107,7 +108,7 @@ Todos los interruptores pertenecen a un único dispositivo de servicio *User Das
 ## Consejos
 
 - **App Companion de Android**: si después de instalar o actualizar la integración el modo quiosco no reacciona en un dispositivo, borra la caché de la app (Ajustes de Android → Aplicaciones → Home Assistant → Almacenamiento → Borrar caché) y vuelve a abrirla.
-- **browser_mod / kiosk-mode**: quita sus ajustes de barra lateral y de quiosco para los usuarios gestionados aquí; si no, ambos actúan a la vez.
+- **browser_mod / kiosk-mode**: si también los usas, no gestiones los mismos ajustes de barra lateral o de quiosco para el mismo usuario en ambos sitios; si no, se superponen.
 - **Eliminar la integración** detiene las reglas y el modo quiosco. Lo que ya se escribió se mantiene: cada usuario puede restablecer su barra con *Editar barra lateral*, o puedes hacerlo desde la consola antes de eliminarla (**Dejar de gestionar** conserva los ajustes actuales).
 - **Diagnósticos** (página de la integración → ⋮ → Descargar diagnósticos): reglas y estado actual por usuario, sin nombres ni identificadores de cuenta.
 

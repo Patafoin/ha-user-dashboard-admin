@@ -7,18 +7,19 @@
 [![Validate](https://github.com/Patafoin/ha-user-dashboard-admin/actions/workflows/validate.yml/badge.svg)](https://github.com/Patafoin/ha-user-dashboard-admin/actions/workflows/validate.yml)
 [![Tests](https://github.com/Patafoin/ha-user-dashboard-admin/actions/workflows/tests.yml/badge.svg)](https://github.com/Patafoin/ha-user-dashboard-admin/actions/workflows/tests.yml)
 
-Décidez, depuis **une seule console d'administration**, de ce que voit chaque utilisateur de Home Assistant : la **barre latérale** (quelles entrées, dans quel ordre), le **dashboard par défaut** et le **mode kiosque**. Plus besoin de vous connecter avec chaque compte pour tout régler, et plus besoin de browser_mod.
+Décidez, depuis **une seule console d'administration**, de ce que voit chaque utilisateur de Home Assistant : la **barre latérale** (quelles entrées, dans quel ordre), le **dashboard par défaut** et le **mode kiosque**. Plus besoin de vous connecter avec chaque compte pour tout régler.
 
 ![La console](https://raw.githubusercontent.com/Patafoin/ha-user-dashboard-admin/main/docs/images/fr/console.png)
 
 ## Pourquoi
 
-Home Assistant laisse chaque utilisateur ranger sa propre barre latérale et choisir son dashboard par défaut, mais un administrateur ne peut pas le faire à sa place. Les solutions habituelles (browser_mod, custom-sidebar, kiosk-mode) retouchent la page de l'intérieur, et cassent souvent aux mises à jour du frontend.
+Home Assistant laisse chaque utilisateur ranger sa propre barre latérale et choisir son dashboard par défaut, mais un administrateur ne peut pas le faire à sa place.
 
-User Dashboard Admin fait l'inverse :
+User Dashboard Admin permet à l'administrateur de le faire depuis une seule console :
 
 - **Barre latérale et dashboard par défaut** sont écrits côté serveur, dans les préférences par utilisateur que **le frontend officiel lit déjà** (celles qu'enregistre la fenêtre *Modifier la barre latérale*). C'est le frontend qui les applique ; les onglets ouverts se mettent à jour aussitôt.
 - **Le mode kiosque** est le mode kiosque **natif** du frontend. Un petit module demande au serveur si l'utilisateur connecté doit être en kiosque, et l'active. Il ne touche pas à la mise en page.
+- Les réglages suivent le **compte utilisateur** : ils s'appliquent à tous les appareils de cet utilisateur. Pour des réglages différents par **appareil** pour un même utilisateur, voir [browser_mod](https://github.com/thomasloven/hass-browser_mod).
 
 ## Fonctionnalités
 
@@ -107,7 +108,7 @@ Les interrupteurs sont rattachés à un unique appareil de service *User Dashboa
 ## Conseils
 
 - **Appli Companion Android** : après l'installation ou une mise à jour de l'intégration, si le kiosque ne réagit pas sur un appareil, videz le cache de l'appli (Paramètres Android → Applications → Home Assistant → Stockage → Vider le cache) et rouvrez-la.
-- **browser_mod / kiosk-mode** : retirez leurs réglages de barre latérale et de kiosque pour les utilisateurs gérés ici, sinon les deux agissent en même temps.
+- **browser_mod / kiosk-mode** : si vous les utilisez aussi, ne gérez pas les mêmes réglages de barre latérale ou de kiosque pour le même utilisateur aux deux endroits, sinon ils se superposent.
 - **Supprimer l'intégration** arrête les règles et le kiosque. Ce qui a été écrit reste en place : chaque utilisateur peut réinitialiser sa barre avec *Modifier la barre latérale*, ou vous pouvez le faire depuis la console avant la suppression (**Ne plus gérer** conserve les réglages actuels).
 - **Diagnostics** (page de l'intégration → ⋮ → Télécharger les diagnostics) : règles et état actuel par utilisateur, sans les noms ni les identifiants de compte.
 

@@ -7,18 +7,19 @@
 [![Validate](https://github.com/Patafoin/ha-user-dashboard-admin/actions/workflows/validate.yml/badge.svg)](https://github.com/Patafoin/ha-user-dashboard-admin/actions/workflows/validate.yml)
 [![Tests](https://github.com/Patafoin/ha-user-dashboard-admin/actions/workflows/tests.yml/badge.svg)](https://github.com/Patafoin/ha-user-dashboard-admin/actions/workflows/tests.yml)
 
-Lege in **einer einzigen Admin-Konsole** fest, was jeder Home-Assistant-Benutzer sieht: die **Seitenleiste** (welche Einträge, in welcher Reihenfolge), das **Standard-Dashboard** und den **Kioskmodus**. Kein Anmelden mehr mit jedem Konto, und kein browser_mod.
+Lege in **einer einzigen Admin-Konsole** fest, was jeder Home-Assistant-Benutzer sieht: die **Seitenleiste** (welche Einträge, in welcher Reihenfolge), das **Standard-Dashboard** und den **Kioskmodus**. Kein Anmelden mehr mit jedem Konto.
 
 ![Die Konsole](https://raw.githubusercontent.com/Patafoin/ha-user-dashboard-admin/main/docs/images/de/console.png)
 
 ## Warum
 
-Home Assistant lässt jeden Benutzer seine eigene Seitenleiste ordnen und sein Standard-Dashboard wählen, aber ein Administrator kann das nicht für ihn tun. Die üblichen Umwege (browser_mod, custom-sidebar, kiosk-mode) verändern die Seite von innen und gehen bei Frontend-Updates oft kaputt.
+Home Assistant lässt jeden Benutzer seine eigene Seitenleiste ordnen und sein Standard-Dashboard wählen, aber ein Administrator kann das nicht für ihn tun.
 
-User Dashboard Admin geht den umgekehrten Weg:
+Mit User Dashboard Admin erledigt der Administrator das in einer einzigen Konsole:
 
 - **Seitenleiste und Standard-Dashboard** werden auf dem Server in die Benutzereinstellungen geschrieben, die **das offizielle Frontend ohnehin liest** (dieselben, die der Dialog *Seitenleiste bearbeiten* speichert). Das Frontend wendet sie selbst an; offene Tabs werden sofort aktualisiert.
 - **Der Kioskmodus** ist der **eigene** Kioskmodus des Frontends. Ein kleines Modul fragt den Server, ob der angemeldete Benutzer im Kioskmodus sein soll, und schaltet ihn ein. Das Seitenlayout wird nicht verändert.
+- Die Einstellungen gelten für das **Benutzerkonto**, also auf allen Geräten dieses Benutzers. Für unterschiedliche Einstellungen pro **Gerät** desselben Benutzers siehe [browser_mod](https://github.com/thomasloven/hass-browser_mod).
 
 ## Funktionen
 
@@ -107,7 +108,7 @@ Alle Schalter gehören zu einem einzigen Dienstgerät *User Dashboard Admin*. Ei
 ## Tipps
 
 - **Android-Companion-App**: Wenn der Kioskmodus nach der Installation oder einem Update der Integration auf einem Gerät nicht reagiert, den App-Cache leeren (Android-Einstellungen → Apps → Home Assistant → Speicher → Cache leeren) und die App neu öffnen.
-- **browser_mod / kiosk-mode**: deren Seitenleisten- und Kiosk-Einstellungen für die hier verwalteten Benutzer entfernen, sonst wirken beide gleichzeitig.
+- **browser_mod / kiosk-mode**: wenn du sie ebenfalls nutzt, dieselben Seitenleisten- oder Kiosk-Einstellungen für denselben Benutzer nicht an beiden Stellen verwalten, sonst überschneiden sie sich.
 - **Das Entfernen der Integration** beendet die Regeln und den Kioskmodus. Bereits Geschriebenes bleibt erhalten: Jeder Benutzer kann seine Seitenleiste mit *Seitenleiste bearbeiten* zurücksetzen, oder du erledigst das vorher in der Konsole (**Nicht mehr verwalten** behält die aktuellen Einstellungen).
 - **Diagnosedaten** (Seite der Integration → ⋮ → Diagnosedaten herunterladen): Regeln und aktueller Stand pro Benutzer, ohne Namen und Konto-IDs.
 
